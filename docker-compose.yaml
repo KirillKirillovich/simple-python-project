@@ -1,0 +1,17 @@
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/html:/usr/share/nginx/html
+    depends_on:
+      - flask
+
+  flask:
+    build: ./flask
+    ports:
+      - "5000:5000"
+    restart: always
+
