@@ -6,7 +6,7 @@ Basic Flask app
 2) go on http://localhost:80
 
 # makefile commands:
-make build - run project
-make build-develop - run project in develope mode
-make docker-stop - stop project
-make docker-exec - exec container with app
++ make build - run project
++ make build-develop - run project in develope mode
++ make docker-stop - stop project
++ make docker-exec - exec container with app
