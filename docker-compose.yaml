@@ -13,5 +13,10 @@ services:
     build: ./flask
     ports:
       - "5000:5000"
+    volumes:
+      - ./flask:/app
+    environment:
+      - FLASK_ENV
+      - FLASK_DEBUG
     restart: always
 

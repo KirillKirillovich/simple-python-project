@@ -2,5 +2,11 @@
 Basic Flask app
 
 # installation
-RUN docker-compose up --build -d || docker compose up --build -d
-CHECK http://localhost:80
+1) make build
+2) go on http://localhost:80
+
+# makefile commands:
+make build - run project
+make build-develop - run project in develope mode
+make docker-stop - stop project
+make docker-exec - exec container with app
