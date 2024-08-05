@@ -1,3 +1,6 @@
+name: Linter for flask app
+run-name: Run linter - ${{ github.event_name }} on ${{ github.ref_name }}
+
 on:
   push:
     branches:

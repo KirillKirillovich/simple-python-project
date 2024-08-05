@@ -1,3 +1,6 @@
+name: Tests for flask app
+run-name: Run pytest - ${{ github.event_name }} on ${{ github.ref_name }}
+
 on:
   push:
     branches:
