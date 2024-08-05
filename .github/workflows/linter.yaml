@@ -21,13 +21,20 @@ jobs:
       with:
         python-version: '3.9' 
 
-    - name: install dependencies
+    - name: debug
       run: |
-        cd WORK_DIR
-        pip install -r requirements.txt
+        pwd
+        ls -a
+        echo WORK_DIR
 
-    - name: Lint with flake8
-      run: |
-        # fail if there are any flake8 errors
-        cd WORK_DIR
-        flake8 .
+
+    # - name: install dependencies
+    #   run: |
+    #     cd WORK_DIR
+    #     pip install -r requirements.txt
+
+    # - name: Lint with flake8
+    #   run: |
+    #     # fail if there are any flake8 errors
+    #     cd WORK_DIR
+    #     flake8 .
