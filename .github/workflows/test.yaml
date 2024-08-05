@@ -33,5 +33,4 @@ jobs:
       env:
         PYTHONPATH: /home/runner/work/simple-python-project/simple-python-project/flask/app
       run: |
-        cd $WORK_DIR
         pytest
