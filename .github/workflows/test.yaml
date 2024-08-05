@@ -10,6 +10,7 @@ on:
 
 env:
   WORK_DIR: /home/runner/work/simple-python-project/simple-python-project/flask
+        
 
 jobs:
   run-tests:
@@ -29,7 +30,8 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run tests
+      env:
+        PYTHONPATH: /home/runner/work/simple-python-project/simple-python-project/flask/app
       run: |
-        export PYTHONPATH="/app"
         cd $WORK_DIR
         pytest
