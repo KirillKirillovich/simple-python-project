@@ -1,8 +1,12 @@
 # simple-python-project
 Basic Flask app
 
+# requirements:
+1) Docker version 26.1.3
+2) Docker Compose version v2.27.0
+
 # installation
-1) make build
+1) make docker-build
 2) go on http://localhost:80
 
 # makefile commands:
