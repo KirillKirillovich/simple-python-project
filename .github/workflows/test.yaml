@@ -1,5 +1,5 @@
-name: Linter for flask app
-run-name: Run linter - ${{ github.event_name }} on ${{ github.ref_name }}
+name: Tests for flask app
+run-name: Run pytest - ${{ github.event_name }} on ${{ github.ref_name }}
 
 on:
   push:
@@ -13,9 +13,10 @@ on:
 
 env:
   WORK_DIR: /home/runner/work/simple-python-project/simple-python-project/flask
+        
 
 jobs:
-  run-linter:
+  run-tests:
     runs-on: ubuntu-latest
     steps:
     - name: checkout code
@@ -31,7 +32,6 @@ jobs:
         cd $WORK_DIR
         pip install -r requirements.txt
 
-    - name: Lint with flake8
+    - name: Run tests
       run: |
-        cd $WORK_DIR
-        flake8 .
+        pytest
