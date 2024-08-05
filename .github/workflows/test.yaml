@@ -30,5 +30,6 @@ jobs:
 
     - name: Run tests
       run: |
+        export PYTHONPATH="/app"
         cd $WORK_DIR
         pytest
