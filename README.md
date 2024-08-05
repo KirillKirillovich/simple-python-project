@@ -1,4 +1,8 @@
 # simple-python-project
+
+[![Linter for flask app](https://github.com/KirillKirillovich/simple-python-project/actions/workflows/linter.yaml/badge.svg)](https://github.com/KirillKirillovich/simple-python-project/actions/workflows/linter.yaml)
+[![Tests for flask app](https://github.com/KirillKirillovich/simple-python-project/actions/workflows/test.yaml/badge.svg)](https://github.com/KirillKirillovich/simple-python-project/actions/workflows/test.yaml)
+
 Basic Flask app
 
 # requirements:
