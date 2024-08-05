@@ -25,7 +25,7 @@ jobs:
       run: |
         pwd
         ls -a
-        echo ${{ WORK_DIR }}
+        echo "work dir: $WORK_DIR"
 
 
     # - name: install dependencies
