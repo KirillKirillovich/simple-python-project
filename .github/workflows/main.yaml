@@ -1,12 +1,10 @@
 name: CICD on aws ec2 instance
 
 on:
-  push:
-    branches:
-      - develop
-  pull_request:
-    branches:
-      - develop
+  workflow_run:
+    workflows: ["Tests for flask app"]
+    types:
+      - completed
 
 jobs:
   run-tests:
