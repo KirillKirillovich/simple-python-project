@@ -1,0 +1,30 @@
+name: CICD on aws ec2 instance
+
+on:
+  workflow_run:
+    workflows: ["Tests for flask app"]
+    types:
+      - completed
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout code
+      uses: actions/checkout@v4
+
+    - name: Run playbook
+      uses: dawidd6/action-ansible-playbook@v2
+      with:
+        playbook: .ansible/main.yaml
+        configuration: |
+          [defaults]
+          host_key_checking = false
+        key: ${{secrets.AWS_SSH_PRIAVATE_KEY}}
+        inventory: |
+          [all]
+          ${{secrets.AWS_PATH}}
+        options: |
+          -e AWS_USER=${{secrets.AWS_USER}}
+          -e GITHUB_REPO=${{github.repository}}
+          -e APP_PATH=${{vars.APP_PATH}}
