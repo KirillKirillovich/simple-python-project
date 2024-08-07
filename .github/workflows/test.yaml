@@ -2,10 +2,12 @@ name: Tests for flask app
 run-name: Run pytest - ${{ github.event_name }} on ${{ github.ref_name }}
 
 on:
-  workflow_run:
-    workflows: ["Linter for flask app"]
-    types:
-      - completed
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
   
 
 env:
