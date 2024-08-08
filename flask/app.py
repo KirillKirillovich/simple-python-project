@@ -11,7 +11,7 @@ def return_content():
     if os.path.exists(file_path):
         return send_from_directory(start_page, 'index.html')
     else:
-        abort(404, description="File not found")
+        'test'
 
     return file_path if os.path.exists(file_path) else 'sss'
 
