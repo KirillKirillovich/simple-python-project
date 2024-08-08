@@ -1,4 +1,4 @@
-- name: Build app
+- name: Pull and build app
   hosts: all
   remote_user: "{{ AWS_USER }}"
   roles:
