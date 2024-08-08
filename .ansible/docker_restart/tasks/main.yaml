@@ -1,12 +1,9 @@
-- name: Build image & restart contaner
+- name: Ensure Docker Compose directory exists
+  file:
+    path: "{{ APP_PATH }}"
+    state: directory
 
-  tasks:
-    - name: Ensure Docker Compose directory exists
-      file:
-        path: "{{ APP_PATH }}"
-        state: directory
-
-    - name: Build and start Docker Compose services
-      command:
-        cmd: docker compose up -d --build
-        chdir: "{{ APP_PATH }}"
+- name: Build and start Docker Compose services
+  command:
+    cmd: docker compose up -d --build
+    chdir: "{{ APP_PATH }}"
