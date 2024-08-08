@@ -1,6 +1,6 @@
 from flask import Flask
 app = Flask(__name__)
-CONTENT = 'content'
+CONTENT = 'change content for test'
 
 
 @app.route('/')
