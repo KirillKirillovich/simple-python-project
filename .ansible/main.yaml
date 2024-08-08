@@ -3,3 +3,4 @@
   remote_user: "{{ AWS_USER }}"
   roles:
     - git_pull
+    - docker_restart
