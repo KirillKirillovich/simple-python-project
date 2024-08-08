@@ -1,6 +1,12 @@
-- name: Pull app changes
-  git:
-    repo: "git@github.com:{{ GITHUB_REPO }}.git"
-    dest: "{{ APP_PATH }}"
-    single_branch: yes
-    version: develop
+- name: Build image & restart contaner
+
+  tasks:
+    - name: Ensure Docker Compose directory exists
+      file:
+        path: "{{ APP_PATH }}"
+        state: directory
+
+    - name: Build and start Docker Compose services
+      command:
+        cmd: docker compose up -d --build
+        chdir: "{{ APP_PATH }}"
