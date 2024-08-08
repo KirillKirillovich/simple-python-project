@@ -1,4 +1,4 @@
-name: CICD on aws ec2 instance
+name: CD on aws ec2 instance
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
         key: ${{secrets.AWS_SSH_PRIAVATE_KEY}}
         inventory: |
           [all]
-          ${{secrets.AWS_PATH}}
+          ${{secrets.AWS_IP_PATH}}
         options: |
           -e AWS_USER=${{secrets.AWS_USER}}
           -e GITHUB_REPO=${{github.repository}}
