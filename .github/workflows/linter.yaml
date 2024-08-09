@@ -1,13 +1,11 @@
 name: Linter tests
 run-name: Run linter - ${{ github.event_name }} on ${{ github.ref_name }}
 
-on:
-  push:
-    branches:
-      - develop
+on: 
   pull_request:
     branches:
       - develop
+      - main
 
 env:
   WORK_DIR: /home/runner/work/simple-python-project/simple-python-project/flask

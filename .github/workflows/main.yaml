@@ -1,16 +1,13 @@
 name: CD on aws ec2 instance
+run-name: Run CD to dev - ${{ github.event_name }} on ${{ github.ref_name }}
 
 on:
-  workflow_run:
-    workflows: 
-      - Linter tests
-      - Unit tests
-    types:
-      - completed
+  push:
+    branches:
+      - develop
 
 jobs:
   build:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
     - name: checkout code
