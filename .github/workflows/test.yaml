@@ -1,16 +1,12 @@
-name: Tests for flask app
+name: Unit tests
 run-name: Run pytest - ${{ github.event_name }} on ${{ github.ref_name }}
 
-on:
-  push:
-    branches:
-      - develop
-      - main
+on: 
   pull_request:
     branches:
       - develop
       - main
-
+  
 env:
   WORK_DIR: /home/runner/work/simple-python-project/simple-python-project/flask
         
