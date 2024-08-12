@@ -1,7 +1,9 @@
-name: Manual deploy to main
+name: deploy to main
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   deploy:
