@@ -1,13 +1,15 @@
-name: Manual deploy to main
+name: Deploy to develop
+run-name: Run CD to dev - ${{ github.event_name }} on ${{ github.ref_name }}
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - develop
 
 jobs:
-  deploy:
-    if: github.ref == 'refs/heads/main'
+  build:
     runs-on: ubuntu-latest
-    environment: PRODUCTION
+    environment: STAGE
     steps:
     - name: checkout code
       uses: actions/checkout@v4
@@ -23,8 +25,8 @@ jobs:
         inventory: |
           ${{secrets.AWS_INVENTORY}}
         options: |
-          -e AWS_INSTANCE=production
-          -e APP_VERSION=main
+          -e AWS_INSTANCE=stage
+          -e APP_VERSION=develop
           -e AWS_USER=${{secrets.AWS_USER}}
           -e GITHUB_REPO=${{github.repository}}
           -e APP_PATH=${{vars.APP_PATH}}
