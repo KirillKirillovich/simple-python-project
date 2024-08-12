@@ -1,5 +1,5 @@
 - name: Pull and build app
-  hosts: all
+  hosts: "{{ AWS_INSTANCE }}"
   remote_user: "{{ AWS_USER }}"
   roles:
     - git_pull
