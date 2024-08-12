@@ -1,0 +1,10 @@
+- name: Disable strict host key checking
+  shell: |
+    export ANSIBLE_SSH_ARGS="-o StrictHostKeyChecking=no"
+
+- name: Pull app changes
+  git:
+    repo: "git@github.com:{{ GITHUB_REPO }}.git"
+    dest: "{{ APP_PATH }}"
+    single_branch: yes
+    version: "{{ APP_VERSION }}"

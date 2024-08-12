@@ -1,0 +1,6 @@
+- name: Pull and build app
+  hosts: "{{ AWS_INSTANCE }}"
+  remote_user: "{{ AWS_USER }}"
+  roles:
+    - git_pull
+    - docker_restart

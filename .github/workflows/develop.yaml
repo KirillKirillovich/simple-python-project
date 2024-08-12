@@ -1,0 +1,32 @@
+name: Deploy to develop
+run-name: Run CD to dev - ${{ github.event_name }} on ${{ github.ref_name }}
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: STAGE
+    steps:
+    - name: checkout code
+      uses: actions/checkout@v4
+
+    - name: Run playbook
+      uses: dawidd6/action-ansible-playbook@v2
+      with:
+        playbook: .ansible/main.yaml
+        configuration: |
+          [defaults]
+          host_key_checking = false
+        key: ${{secrets.AWS_SSH_PRIAVATE_KEY}}
+        inventory: |
+          ${{secrets.AWS_INVENTORY}}
+        options: |
+          -e AWS_INSTANCE=stage
+          -e APP_VERSION=develop
+          -e AWS_USER=${{secrets.AWS_USER}}
+          -e GITHUB_REPO=${{github.repository}}
+          -e APP_PATH=${{vars.APP_PATH}}
